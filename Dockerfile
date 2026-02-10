@@ -1,12 +1,18 @@
-FROM node:18
+# Base image to use
+FROM node:latest
 
+# set a working directory
 WORKDIR /src
 
-COPY package*.json ./
-RUN npm install -g supervisor && npm install || true
+# Copy across project configuration information
+# Install application dependencies
+COPY package*.json /src/
 
-COPY . .
+# Ask npm to install the dependencies
+RUN npm install -g supervisor && npm install && npm install supervisor
 
-EXPOSE 3000
+# Copy across all our files
+COPY . /src
 
-CMD ["supervisor", "index.js"]
+# Expose our application port (3000)
+EXPOSE 3000]
