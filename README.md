@@ -10,4 +10,4 @@ Run the project using:
 docker compose up
 
 ## Status
-This project is in early development. Core features are implemented in later sprints.
+The project is in early development. Other features are implemented in later sprints.
